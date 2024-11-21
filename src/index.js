@@ -16,92 +16,91 @@ function loadWidget(config) {
         </div>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-
-
-        #myform {
-            z-index: 1000; 
-            display: flex;
-            gap: 10px;
-            padding: 20px;
-            // background-color: white; /* 可选，设置背景色 */
-            // border-top: 1px solid #eee; /* 可选，添加上边框 */
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.5); /* 改为半透明 */
-            border-top: 1px solid rgba(238, 238, 238, 0.5); /* 边框也改为半透明 */
-        }
-
-        #input-msg {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            background-color: rgba(255, 255, 255, 0.5); /* 改为半透明 */
-            border-top: 1px solid rgba(238, 238, 238, 0.5); /* 边框也改为半透明 */
-        }
-
-        input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        /* 新增移动设备适配 */
-        @media screen and (max-width: 480px) {
-            body {
-                padding: 10px;
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
 
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+
+
             #myform {
-                padding: 10px;
-                gap: 8px;
+                z-index: 1000; 
+                display: flex;
+                gap: 10px;
+                padding: 20px;
+                // background-color: white; /* 可选，设置背景色 */
+                // border-top: 1px solid #eee; /* 可选，添加上边框 */
+                position: sticky;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.5); /* 改为半透明 */
+                border-top: 1px solid rgba(238, 238, 238, 0.5); /* 边框也改为半透明 */
             }
 
             #input-msg {
+                flex: 1;
                 padding: 10px;
-                font-size: 15px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+                background-color: rgba(255, 255, 255, 0.5); /* 改为半透明 */
+                border-top: 1px solid rgba(238, 238, 238, 0.5); /* 边框也改为半透明 */
             }
 
             input[type="submit"] {
-                padding: 10px 15px;
-                font-size: 15px;
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s;
             }
-        }
 
-    </style>
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
+            /* 新增移动设备适配 */
+            @media screen and (max-width: 480px) {
+                body {
+                    padding: 10px;
+                }
+
+                #myform {
+                    padding: 10px;
+                    gap: 8px;
+                }
+
+                #input-msg {
+                    padding: 10px;
+                    font-size: 15px;
+                }
+
+                input[type="submit"] {
+                    padding: 10px 15px;
+                    font-size: 15px;
+                }
+            }
+
+        </style>
         <form id="myform"">
         <input type="text" id = "input-msg" name="input-msg" value=""><br>
         <input name="Submit"  type="submit" value="Send"/>
         </form>
-
-
         `);
+
     // https://stackoverflow.com/questions/24148403/trigger-css-transition-on-appended-element
     setTimeout(() => {
         document.getElementById("waifu").style.bottom = 0;
@@ -172,30 +171,6 @@ function loadWidget(config) {
                 }, 20);
             }
         }, 10);
-        // showMessage(welcomeMessage(result.time), 7000, 11);
-
-        // window.addEventListener("mouseover", event => {
-        //     for (let { selector, text } of result.mouseover) {
-        //         if (!event.target.closest(selector)) continue;
-        //         if (lastHoverElement === selector) return;
-        //         lastHoverElement = selector;
-        //         text = randomSelection(text);
-        //         text = text.replace("{text}", event.target.innerText);
-        //         showMessage(text, 4000, 8);
-        //         return;
-        //     }
-        // });
-
-
-        // window.addEventListener("click", event => {
-        //     for (let { selector, text } of result.click) {
-        //         if (!event.target.closest(selector)) continue;
-        //         text = randomSelection(text);
-        //         text = text.replace("{text}", event.target.innerText);
-        //         showResponse(text, 4000, 8);
-        //         return;
-        //     }
-        // });
 
         result.seasons.forEach(({ date, text }) => {
             const now = new Date(),
@@ -208,17 +183,6 @@ function loadWidget(config) {
             }
         });
 
-        // const devtools = () => { };
-        // console.log("%c", devtools);
-        // devtools.toString = () => {
-        //     showMessage(result.message.console, 6000, 9);
-        // };
-        // window.addEventListener("copy", () => {
-        //     showMessage(result.message.copy, 6000, 9);
-        // });
-        // window.addEventListener("visibilitychange", () => {
-        //     if (!document.hidden) showMessage(result.message.visibilitychange, 6000, 9);
-        // });
     }
 
     (function initModel() {
