@@ -13,6 +13,8 @@
 
 （注：以上人物模型仅供展示之用，本仓库并不包含任何模型。）
 
+DEMO: http://110.41.159.171/
+
 关于Live2D，你也可以查看示例网页（不支持AI聊天）：
 - [demo.html](https://stevenjoezhang.github.io/live2d-widget/demo/demo.html)，展现基础功能
 - [login.html](https://stevenjoezhang.github.io/live2d-widget/demo/login.html)，仿 NPM 的登陆界面
@@ -24,7 +26,7 @@
 ### 前端编译
 
 ```bash
-git clone https://github.com/stevenjoezhang/live2d-widget.git
+git clone https://github.com/vvlife/ChatLive2D.git
 npm install
 npm run build
 ```
