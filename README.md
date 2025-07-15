@@ -23,33 +23,19 @@ DEMO: http://110.41.159.171/
 
 要在本地部署本项目环境，你需要安装 Node.js（https://nodejs.org/en） 和 npm，然后执行以下命令：
 
-### 前端编译
+### 编译運行
 
 ```bash
 git clone https://github.com/vvlife/ChatLive2D.git
 npm install
 npm run build
-```
-
-### 启动后端
-
-下载ollama: https://ollama.org.cn
-启动模型：
-```bash
-ollama run qwen2.5:0.5b
-```
-访问检查：http://localhost:11434
-看到Ollama is running即为成功
-
-### 启动路由(默认80端口)
-
-```bash
-cd ChatLive2D
 node proxyServer.cjs
 ```
 
 ### 使用
-本地启动后浏览器中访问localhost即可,角色在电脑端可以拖动
+本地启动后浏览器中访问localhost即可,首先點擊角色右邊的信息圖標,然後在彈出的窗口中設置API密鑰,即可開始使用。
+這裏需要指定siliconflow的API密鑰,否則無法使用AI聊天功能,使用的模型都是免費模型
+如果沒有siliconflow的API密鑰,可以申請一個,送14元的邀請地址: https://cloud.siliconflow.cn/i/OybsmjxB
 
 如果不使用默认设置，要改端口或者路径则需要修改（路径末尾的 `/` 一定要加上。）
 1. `autoload.js` 中的常量 `live2d_path`
