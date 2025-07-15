@@ -55,7 +55,18 @@ const tools = {
     "info": {
         icon: fa_info_circle,
         callback: () => {
-            open("https://github.com/stevenjoezhang/live2d-widget");
+            const apiKey = localStorage.getItem('savedApiKey') || '';
+            const settingsHtml = `
+                <div class="settings-panel">
+                    <h3>API 密钥设置</h3>
+                    <input type="password" id="apiKeyInput" value="${apiKey}" placeholder="输入您的API密钥">
+                    <button onclick="
+                        localStorage.setItem('savedApiKey', document.getElementById('apiKeyInput').value);
+                        document.querySelector('.settings-panel').remove();
+                    ">保存</button>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', settingsHtml);
         }
     },
     "quit": {
